@@ -27,44 +27,44 @@ async function fetchFromApi<T>(endpoint: string, method: string, body?: unknown)
 }
 
 // GET /employees
-async function GetUsers(): Promise<EmployeeInterface[] | false> {
+async function GetEmployees(): Promise<EmployeeInterface[] | false> {
   return fetchFromApi<EmployeeInterface[]>('/employees', 'GET');
 }
 
 // GET /positions
-async function GetGenders(): Promise<PositionInterface[] | false> {
+async function GetPositions(): Promise<PositionInterface[] | false> {
   return fetchFromApi<PositionInterface[]>('/positions', 'GET');
 }
 
 // DELETE /employees/:id
-async function DeleteUserByID(id: number | undefined): Promise<boolean> {
+async function DeleteEmployeeByID(id: number | undefined): Promise<boolean> {
   if (id === undefined) return false;
   const result = await fetchFromApi<null>(`/employees/${id}`, 'DELETE');
   return result !== false;
 }
 
 // GET /employees/:id
-async function GetUserById(id: number | undefined): Promise<EmployeeInterface | false> {
+async function GetEmployeeById(id: number | undefined): Promise<EmployeeInterface | false> {
   if (id === undefined) return false;
   return fetchFromApi<EmployeeInterface>(`/employees/${id}`, 'GET');
 }
 
 // POST /employees
-async function CreateUser(data: EmployeeInterface): Promise<EmployeeInterface | false> {
+async function CreateEmployee(data: EmployeeInterface): Promise<EmployeeInterface | false> {
   return fetchFromApi<EmployeeInterface>('/employees', 'POST', data);
 }
 
 // PATCH /employees/:id
-async function UpdateUser(id: number | undefined, data: Partial<EmployeeInterface>): Promise<EmployeeInterface | false> {
+async function UpdateEmployee(id: number | undefined, data: Partial<EmployeeInterface>): Promise<EmployeeInterface | false> {
   if (id === undefined) return false;
   return fetchFromApi<EmployeeInterface>(`/employees/${id}`, 'PATCH', data);
 }
 
 export {
-  GetUsers,
-  CreateUser,
-  GetGenders,
-  DeleteUserByID,
-  GetUserById,
-  UpdateUser
+  GetEmployees,
+  CreateEmployee,
+  GetPositions,
+  DeleteEmployeeByID,
+  GetEmployeeById,
+  UpdateEmployee
 };

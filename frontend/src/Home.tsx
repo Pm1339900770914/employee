@@ -3,7 +3,8 @@ import Navbar from './navbar.tsx';
 import Users from './Users.tsx';
 import {Routes, Route,} from "react-router-dom";
 import UserCreate from "./UsersCreate.tsx";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import UsersUpdate from "./UsersUpdate.tsx";
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
             <Routes>
                 <Route path="/" element={<Users/>} />
                 <Route path="/create" element={<UserCreate/>} />
+                <Route path="/update/:id" element={<UsersUpdate/>} />
             </Routes>
         </BrowserRouter>
     )
